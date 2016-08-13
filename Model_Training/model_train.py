@@ -2,6 +2,8 @@ import os
 from clarifai.rest import ApiClient, Image
 
 
+api = ApiClient(base_url='https://api2-prod.clarifai.com', client_id='09-us71rZIxJ9uLSXir95tigu6NOVIN47HM5NYPM' , client_secret='33bPTgG00uYO81HoLqHpjMG-h2ExAw0Li_g45HDG')
+
 s = '/Users/adarsh/Desktop/testAI/hand_open/'
 label = 'hand_open'
 li_hand_open = []
@@ -38,6 +40,7 @@ input_list.extend(li_hand_crossed)
 
 api.addInputs(input_list)
 
+
 res = api.createModel(model_name='Gestures', concept_ids=['hand_open','hand_closed','hand_crossed'])
 
 model_id = res['model']['id']
@@ -47,9 +50,3 @@ model_id = res['model']['id']
 api.trainModel(model_id=model_id)
 
 print model_id
-
-
-
-
-
-
