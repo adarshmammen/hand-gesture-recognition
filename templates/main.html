@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<!-- Main.html page - contains video input, record button, and textbox at the bottom -->
-
 <html>
   <head>
     <title> Hand gesture recognizer </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <style>
 
       #container {
@@ -18,14 +17,31 @@
       height: 375px;
       background-color: #666;
       }
+
+      #record_button {
+      text-align: center;
+      }
+
       
     </style> 
   </head>
   <body>
+    <h3> Hand gesture recognizer </h3>
+    <h6> All hail skynet </h6>
+
     <div id="container">
       <video autoplay="true" id="videoElement">
       </video>
+      <img id="screenshot" src="">
+      <canvas style="display:none;" width="500" height="375"></canvas>
     </div>
+
+    <br />
+
+    <form id="record_button" method="POST">
+      <button type="button">Record</button>
+    </form>
+
     <script src="../script/video.js"></script> 
   </body>
 </html>

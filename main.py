@@ -17,6 +17,9 @@
 import webapp2
 import jinja2
 import os
+import logging
+import base64
+import PIL
 
 jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
@@ -28,6 +31,13 @@ class MainHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/main.html')
         self.response.write(template.render())
 
+    def post(self):
+        logging.info("test")
+        base64img = self.request.get('img')
+        imgbytes = base64.b64decode(base64img)
+        
+        
+        
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
 ], debug=True)
